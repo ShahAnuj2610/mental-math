@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mental Math for Everyday Finance</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Space+Grotesk:wght@400;500;600&display=swap');
+
+    :root {
+      --bg: #0b0f14;
+      --bg-2: #0f1722;
+      --ink: #e7f0ff;
+      --ink-muted: #a9b6cc;
+      --accent: #ffb347;
+      --accent-2: #7bdff2;
+      --card: #111827;
+      --card-border: #1f2a3a;
+      --glow: 0 0 40px rgba(255, 179, 71, 0.2);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Space Grotesk", system-ui, -apple-system, sans-serif;
+      color: var(--ink);
+      background: radial-gradient(1200px 600px at 80% -10%, #18263a 0%, transparent 60%),
+                  radial-gradient(1000px 800px at -10% 10%, #162033 0%, transparent 55%),
+                  linear-gradient(180deg, var(--bg), var(--bg-2));
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(1px 1px at 20px 30px, rgba(255,255,255,0.12), transparent 60%),
+                  radial-gradient(1px 1px at 80px 120px, rgba(255,255,255,0.08), transparent 60%),
+                  radial-gradient(1px 1px at 200px 90px, rgba(255,255,255,0.05), transparent 60%);
+      opacity: 0.25;
+      pointer-events: none;
+    }
+
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 56px 20px 80px;
+    }
+
+    header {
+      display: grid;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--accent-2);
+    }
+
+    h1 {
+      font-family: "Fraunces", serif;
+      font-size: clamp(32px, 4vw, 56px);
+      line-height: 1.05;
+      margin: 0;
+    }
+
+    .subtitle {
+      color: var(--ink-muted);
+      max-width: 720px;
+      font-size: 16px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .hero-card {
+      background: linear-gradient(160deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: var(--glow);
+      transform: translateY(0);
+      transition: transform 0.25s ease;
+    }
+
+    .hero-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .hero-card h3 {
+      margin: 0 0 8px;
+      font-size: 16px;
+      color: var(--accent);
+    }
+
+    .hero-card p {
+      margin: 0;
+      color: var(--ink-muted);
+      font-size: 14px;
+    }
+
+    .section {
+      margin-top: 48px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font-family: "Fraunces", serif;
+      font-size: 26px;
+    }
+
+    .pill {
+      padding: 6px 10px;
+      border: 1px solid var(--card-border);
+      border-radius: 999px;
+      font-size: 12px;
+      color: var(--ink-muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: 18px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: -40% -40% auto auto;
+      width: 140px;
+      height: 140px;
+      background: radial-gradient(circle, rgba(123,223,242,0.2), transparent 70%);
+      opacity: 0.5;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 16px;
+      color: var(--accent);
+    }
+
+    .card ul {
+      margin: 0;
+      padding: 0 0 0 16px;
+      color: var(--ink-muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .callout {
+      margin-top: 36px;
+      padding: 20px;
+      border-radius: 16px;
+      border: 1px solid var(--card-border);
+      background: linear-gradient(135deg, rgba(255,179,71,0.12), rgba(123,223,242,0.12));
+    }
+
+    .callout h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+
+    .callout p {
+      margin: 0;
+      color: var(--ink-muted);
+    }
+
+    .footer {
+      margin-top: 48px;
+      font-size: 12px;
+      color: var(--ink-muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .chip {
+      border: 1px solid var(--card-border);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      color: var(--ink-muted);
+      background: rgba(255,255,255,0.02);
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .fade-in {
+        animation: fadeIn 0.8s ease both;
+      }
+      .stagger-1 { animation-delay: 0.1s; }
+      .stagger-2 { animation-delay: 0.2s; }
+      .stagger-3 { animation-delay: 0.3s; }
+      .stagger-4 { animation-delay: 0.4s; }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(12px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="eyebrow">Quick Money Math</div>
+      <h1 class="fade-in">Mental math for daily financial decisions — fast, clean, and confident.</h1>
+      <p class="subtitle fade-in stagger-1">
+        Use this page as a lightweight reference for savings, loans, EMIs, inflation, and financial independence.
+        All numbers are close‑enough approximations for quick choices in India (INR).
+      </p>
+      <div class="chip-row fade-in stagger-2">
+        <span class="chip">Rule of 72</span>
+        <span class="chip">4% FI Rule</span>
+        <span class="chip">APR → Monthly</span>
+        <span class="chip">EMI shortcuts</span>
+        <span class="chip">Inflation intuition</span>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="section-title">
+        <h2>Core shortcuts</h2>
+        <span class="pill">fast mental math</span>
+      </div>
+      <div class="grid">
+        <div class="card fade-in stagger-1">
+          <h3>Percent math</h3>
+          <ul>
+            <li>10% = move decimal left.</li>
+            <li>5% = half of 10%.</li>
+            <li>1% = decimal left twice.</li>
+            <li>15% = 10% + 5%.</li>
+          </ul>
+        </div>
+        <div class="card fade-in stagger-2">
+          <h3>APR to monthly</h3>
+          <ul>
+            <li>Monthly rate ≈ APR ÷ 12.</li>
+            <li>18% APR → 1.5%/month.</li>
+            <li>24% APR → 2%/month.</li>
+            <li>6% APR → 0.5%/month.</li>
+          </ul>
+        </div>
+        <div class="card fade-in stagger-3">
+          <h3>Rule of 72</h3>
+          <ul>
+            <li>Years to double ≈ 72 ÷ return %.</li>
+            <li>8% → ~9 years.</li>
+            <li>10% → ~7 years.</li>
+            <li>12% → ~6 years.</li>
+          </ul>
+        </div>
+        <div class="card fade-in stagger-4">
+          <h3>Inflation intuition</h3>
+          <ul>
+            <li>3% inflation halves value in ~24 years.</li>
+            <li>6% halves in ~12 years.</li>
+            <li>Buying power erodes faster than it feels.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <h2>Savings & FI</h2>
+        <span class="pill">financial independence</span>
+      </div>
+      <div class="grid">
+        <div class="card fade-in stagger-1">
+          <h3>4% rule</h3>
+          <ul>
+            <li>FI number ≈ annual expenses × 25.</li>
+            <li>₹6L/yr expenses → ₹1.5Cr target.</li>
+            <li>₹12L/yr expenses → ₹3Cr target.</li>
+          </ul>
+        </div>
+        <div class="card fade-in stagger-2">
+          <h3>Saving rate logic</h3>
+          <ul>
+            <li>Saving 50% = 1 year of expenses saved per year.</li>
+            <li>Saving 25% = 3 years to save 1 year of expenses.</li>
+            <li>More savings = fewer work years needed.</li>
+          </ul>
+        </div>
+        <div class="card fade-in stagger-3">
+          <h3>Emergency fund</h3>
+          <ul>
+            <li>3–6 months expenses = baseline safety.</li>
+            <li>Unstable income? Target 9–12 months.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <h2>Loans & EMI</h2>
+        <span class="pill">borrow smart</span>
+      </div>
+      <div class="grid">
+        <div class="card fade-in stagger-1">
+          <h3>30‑year EMI shortcut</h3>
+          <ul>
+            <li>Monthly payment ≈ loan ÷ 200.</li>
+            <li>₹20,00,000 → ~₹10,000/month.</li>
+            <li>₹75,00,000 → ~₹37,500/month.</li>
+          </ul>
+        </div>
+        <div class="card fade-in stagger-2">
+          <h3>20‑year EMI shortcut</h3>
+          <ul>
+            <li>Monthly payment ≈ loan ÷ 170.</li>
+            <li>Shorter term = higher EMI, lower interest.</li>
+          </ul>
+        </div>
+        <div class="card fade-in stagger-3">
+          <h3>Interest reality check</h3>
+          <ul>
+            <li>If EMI is barely above monthly interest, principal shrinks slowly.</li>
+            <li>1% rate drop saves ~1% of principal per year.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <h2>Everyday decisions</h2>
+        <span class="pill">buy or pass</span>
+      </div>
+      <div class="grid">
+        <div class="card fade-in stagger-1">
+          <h3>Cost per use</h3>
+          <ul>
+            <li>Price ÷ expected uses = value reality.</li>
+            <li>₹6,000 used 60 times → ₹100/use.</li>
+          </ul>
+        </div>
+        <div class="card fade-in stagger-2">
+          <h3>Credit card drag</h3>
+          <ul>
+            <li>24% APR ≈ 2% interest per month.</li>
+            <li>₹10,000 balance → ~₹200/month interest.</li>
+          </ul>
+        </div>
+        <div class="card fade-in stagger-3">
+          <h3>Salary multiple</h3>
+          <ul>
+            <li>If price > 3 months net pay, slow down.</li>
+            <li>Compare financing vs saving 3–6 months.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="callout">
+      <h3>One‑minute decision script</h3>
+      <p>
+        1) Convert APR to monthly rate. 2) Estimate EMI with shortcuts. 3) Compare to take‑home pay.
+        4) Translate into “years of expenses saved.” 5) Decide if the tradeoff feels right.
+      </p>
+    </section>
+
+    <div class="footer">
+      <span>Made for quick daily decisions. Adjust for your local rates.</span>
+      <span>Last updated: Jan 17, 2026</span>
+    </div>
+  </div>
+</body>
+</html>
