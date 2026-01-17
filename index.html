@@ -399,8 +399,21 @@
 
     <div class="footer">
       <span>Made for quick daily decisions. Adjust for your local rates.</span>
-      <span>Last updated: Jan 17, 2026</span>
+      <span>Last updated: <span id="last-updated">—</span></span>
     </div>
   </div>
+
+  <script>
+    (function () {
+      var el = document.getElementById("last-updated");
+      if (!el) return;
+      var now = new Date();
+      el.textContent = now.toLocaleDateString("en-IN", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric"
+      });
+    })();
+  </script>
 </body>
 </html>
