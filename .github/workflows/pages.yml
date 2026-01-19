@@ -24,6 +24,13 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
+      - name: Stamp last updated from latest commit
+        shell: bash
+        run: |
+          LAST_UPDATED=$(date -u -d "$(git log -1 --format=%cI)" "+%d %b %Y")
+          echo "Last updated: ${LAST_UPDATED}"
+          sed -i "s|<span id=\"last-updated\" data-fallback=\"—\">—</span>|<span id=\"last-updated\" data-fallback=\"—\">${LAST_UPDATED}</span>|" index.html
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

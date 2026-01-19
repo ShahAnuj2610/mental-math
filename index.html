@@ -399,7 +399,7 @@
 
     <div class="footer">
       <span>Made for quick daily decisions. Adjust for your local rates.</span>
-      <span>Last updated: <span id="last-updated">—</span></span>
+      <span>Last updated: <span id="last-updated" data-fallback="—">—</span></span>
     </div>
   </div>
 
@@ -407,12 +407,8 @@
     (function () {
       var el = document.getElementById("last-updated");
       if (!el) return;
-      var now = new Date();
-      el.textContent = now.toLocaleDateString("en-IN", {
-        day: "2-digit",
-        month: "short",
-        year: "numeric"
-      });
+      if (el.textContent && el.textContent.trim() !== "—") return;
+      el.textContent = el.getAttribute("data-fallback") || "—";
     })();
   </script>
 </body>
