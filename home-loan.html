@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mental Math for Everyday Finance</title>
+  <title>Home Loan Decision Guide (India)</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Space+Grotesk:wght@400;500;600&display=swap');
 
@@ -19,9 +19,7 @@
       --glow: 0 0 40px rgba(255, 179, 71, 0.2);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -31,7 +29,6 @@
                   radial-gradient(1000px 800px at -10% 10%, #162033 0%, transparent 55%),
                   linear-gradient(180deg, var(--bg), var(--bg-2));
       min-height: 100vh;
-      overflow-x: hidden;
     }
 
     body::before {
@@ -51,11 +48,7 @@
       padding: 56px 20px 80px;
     }
 
-    header {
-      display: grid;
-      gap: 20px;
-      align-items: center;
-    }
+    header { display: grid; gap: 16px; }
 
     .eyebrow {
       font-size: 12px;
@@ -73,7 +66,7 @@
 
     .subtitle {
       color: var(--ink-muted);
-      max-width: 720px;
+      max-width: 760px;
       font-size: 16px;
     }
 
@@ -81,7 +74,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 16px;
-      margin-top: 24px;
+      margin-top: 18px;
     }
 
     .hero-card {
@@ -90,12 +83,6 @@
       border-radius: 16px;
       padding: 18px;
       box-shadow: var(--glow);
-      transform: translateY(0);
-      transition: transform 0.25s ease;
-    }
-
-    .hero-card:hover {
-      transform: translateY(-6px);
     }
 
     .hero-card h3 {
@@ -110,9 +97,7 @@
       font-size: 14px;
     }
 
-    .section {
-      margin-top: 48px;
-    }
+    .section { margin-top: 48px; }
 
     .section-title {
       display: flex;
@@ -182,15 +167,8 @@
       background: linear-gradient(135deg, rgba(255,179,71,0.12), rgba(123,223,242,0.12));
     }
 
-    .callout h3 {
-      margin: 0 0 8px;
-      font-size: 18px;
-    }
-
-    .callout p {
-      margin: 0;
-      color: var(--ink-muted);
-    }
+    .callout h3 { margin: 0 0 8px; font-size: 18px; }
+    .callout p { margin: 0; color: var(--ink-muted); }
 
     .footer {
       margin-top: 48px;
@@ -202,42 +180,20 @@
       gap: 8px;
     }
 
-    .chip-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 12px;
-    }
-
-    .chip {
-      border: 1px solid var(--card-border);
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-size: 12px;
-      color: var(--ink-muted);
-      background: rgba(255,255,255,0.02);
-    }
-
     a.link {
       color: var(--accent-2);
       text-decoration: none;
       border-bottom: 1px dashed rgba(123,223,242,0.5);
     }
 
-    a.link:hover {
-      color: var(--accent);
-      border-bottom-color: rgba(255,179,71,0.6);
-    }
+    a.link:hover { color: var(--accent); border-bottom-color: rgba(255,179,71,0.6); }
 
     @media (prefers-reduced-motion: no-preference) {
-      .fade-in {
-        animation: fadeIn 0.8s ease both;
-      }
+      .fade-in { animation: fadeIn 0.8s ease both; }
       .stagger-1 { animation-delay: 0.1s; }
       .stagger-2 { animation-delay: 0.2s; }
       .stagger-3 { animation-delay: 0.3s; }
       .stagger-4 { animation-delay: 0.4s; }
-
       @keyframes fadeIn {
         from { opacity: 0; transform: translateY(12px); }
         to { opacity: 1; transform: translateY(0); }
@@ -248,60 +204,55 @@
 <body>
   <div class="wrap">
     <header>
-      <div class="eyebrow">Quick Money Math</div>
-      <h1 class="fade-in">Mental math for daily financial decisions — fast, clean, and confident.</h1>
+      <div class="eyebrow">Home Loan Decision</div>
+      <h1 class="fade-in">A clear, India‑focused guide to decide before you take a home loan.</h1>
       <p class="subtitle fade-in stagger-1">
-        Use this page as a lightweight reference for savings, loans, EMIs, inflation, and financial independence.
-        All numbers are close‑enough approximations for quick choices in India (INR).
+        This is a practical checklist with EMI comfort rules, rent comparisons, rate stress tests,
+        and worst‑case safety planning so you can decide with confidence.
       </p>
-      <div class="chip-row fade-in stagger-2">
-        <span class="chip">Rule of 72</span>
-        <span class="chip">4% FI Rule</span>
-        <span class="chip">APR → Monthly</span>
-        <span class="chip">EMI shortcuts</span>
-        <span class="chip">Inflation intuition</span>
+      <div class="hero-grid fade-in stagger-2">
+        <div class="hero-card">
+          <h3>EMI comfort</h3>
+          <p>Keep EMI ≤ 30–35% of take‑home.</p>
+        </div>
+        <div class="hero-card">
+          <h3>Rent reality</h3>
+          <p>If EMI is 2× rent, buy only if you’ll stay long‑term.</p>
+        </div>
+        <div class="hero-card">
+          <h3>Job‑loss buffer</h3>
+          <p>Hold 9–12 months of (EMI + essentials), preferably liquid.</p>
+        </div>
       </div>
     </header>
 
     <section class="section">
       <div class="section-title">
-        <h2>Core shortcuts</h2>
-        <span class="pill">fast mental math</span>
+        <h2>Step 1: Safety checks</h2>
+        <span class="pill">must‑pass rules</span>
       </div>
       <div class="grid">
         <div class="card fade-in stagger-1">
-          <h3>Percent math</h3>
+          <h3>EMI to income</h3>
           <ul>
-            <li>10% = move decimal left.</li>
-            <li>5% = half of 10%.</li>
-            <li>1% = decimal left twice.</li>
-            <li>15% = 10% + 5%.</li>
+            <li>Target EMI ≤ 30–35% of take‑home.</li>
+            <li>All EMIs together ≤ 40–45%.</li>
+            <li>Stretching above this raises stress risk.</li>
           </ul>
         </div>
         <div class="card fade-in stagger-2">
-          <h3>APR to monthly</h3>
+          <h3>Down payment</h3>
           <ul>
-            <li>Monthly rate ≈ APR ÷ 12.</li>
-            <li>18% APR → 1.5%/month.</li>
-            <li>24% APR → 2%/month.</li>
-            <li>6% APR → 0.5%/month.</li>
+            <li>Aim for 20%+ down payment.</li>
+            <li>Higher down = lower EMI + interest.</li>
+            <li>Keep funds for registration & setup.</li>
           </ul>
         </div>
         <div class="card fade-in stagger-3">
-          <h3>Rule of 72</h3>
+          <h3>Emergency buffer</h3>
           <ul>
-            <li>Years to double ≈ 72 ÷ return %.</li>
-            <li>8% → ~9 years.</li>
-            <li>10% → ~7 years.</li>
-            <li>12% → ~6 years.</li>
-          </ul>
-        </div>
-        <div class="card fade-in stagger-4">
-          <h3>Inflation intuition</h3>
-          <ul>
-            <li>3% inflation halves value in ~24 years.</li>
-            <li>6% halves in ~12 years.</li>
-            <li>Buying power erodes faster than it feels.</li>
+            <li>6–12 months expenses after down payment.</li>
+            <li>Single income → 12–18 months.</li>
           </ul>
         </div>
       </div>
@@ -309,31 +260,29 @@
 
     <section class="section">
       <div class="section-title">
-        <h2>Savings & FI</h2>
-        <span class="pill">financial independence</span>
+        <h2>Step 2: Rent vs buy reality</h2>
+        <span class="pill">opportunity cost</span>
       </div>
       <div class="grid">
         <div class="card fade-in stagger-1">
-          <h3>4% rule</h3>
+          <h3>Rent multiplier</h3>
           <ul>
-            <li>FI number ≈ annual expenses × 25.</li>
-            <li>₹6L/yr expenses → ₹1.5Cr target.</li>
-            <li>₹12L/yr expenses → ₹3Cr target.</li>
+            <li>EMI ~ rent → buying is easier to justify.</li>
+            <li>EMI 2× rent → buy only if staying 7–10+ years.</li>
           </ul>
         </div>
         <div class="card fade-in stagger-2">
-          <h3>Saving rate logic</h3>
+          <h3>Why rent matters</h3>
           <ul>
-            <li>Saving 50% = 1 year of expenses saved per year.</li>
-            <li>Saving 25% = 3 years to save 1 year of expenses.</li>
-            <li>More savings = fewer work years needed.</li>
+            <li>EMI − rent = extra monthly cash lock‑in.</li>
+            <li>That extra could be invested or saved.</li>
           </ul>
         </div>
         <div class="card fade-in stagger-3">
-          <h3>Emergency fund</h3>
+          <h3>Break‑even time</h3>
           <ul>
-            <li>3–6 months expenses = baseline safety.</li>
-            <li>Unstable income? Target 9–12 months.</li>
+            <li>Transaction costs are high early on.</li>
+            <li>Buying makes sense after 7–10 years.</li>
           </ul>
         </div>
       </div>
@@ -341,30 +290,30 @@
 
     <section class="section">
       <div class="section-title">
-        <h2>Loans & EMI</h2>
-        <span class="pill">borrow smart</span>
+        <h2>EMI intuition (India)</h2>
+        <span class="pill">quick math</span>
       </div>
       <div class="grid">
         <div class="card fade-in stagger-1">
-          <h3>30‑year EMI shortcut</h3>
+          <h3>30‑year shortcut</h3>
           <ul>
-            <li>Monthly payment ≈ loan ÷ 200.</li>
-            <li>₹20,00,000 → ~₹10,000/month.</li>
-            <li>₹75,00,000 → ~₹37,500/month.</li>
+            <li>Monthly EMI ≈ loan ÷ 200 (around 8–10%).</li>
+            <li>₹50L → ~₹25k/month.</li>
+            <li>₹80L → ~₹40k/month.</li>
           </ul>
         </div>
         <div class="card fade-in stagger-2">
-          <h3>20‑year EMI shortcut</h3>
+          <h3>20‑year shortcut</h3>
           <ul>
-            <li>Monthly payment ≈ loan ÷ 170.</li>
-            <li>Shorter term = higher EMI, lower interest.</li>
+            <li>Monthly EMI ≈ loan ÷ 170.</li>
+            <li>Shorter tenure = higher EMI, lower interest.</li>
           </ul>
         </div>
         <div class="card fade-in stagger-3">
-          <h3>Interest reality check</h3>
+          <h3>Rate stress test</h3>
           <ul>
-            <li>If EMI is barely above monthly interest, principal shrinks slowly.</li>
-            <li>1% rate drop saves ~1% of principal per year.</li>
+            <li>Check EMI at +1% and +2% interest.</li>
+            <li>If EMI crosses 40%, risk rises fast.</li>
           </ul>
         </div>
       </div>
@@ -372,29 +321,30 @@
 
     <section class="section">
       <div class="section-title">
-        <h2>Everyday decisions</h2>
-        <span class="pill">buy or pass</span>
+        <h2>Worst‑case buffer</h2>
+        <span class="pill">job loss safety</span>
       </div>
       <div class="grid">
         <div class="card fade-in stagger-1">
-          <h3>Cost per use</h3>
+          <h3>Corpus formula</h3>
           <ul>
-            <li>Price ÷ expected uses = value reality.</li>
-            <li>₹6,000 used 60 times → ₹100/use.</li>
+            <li>Corpus = months × (EMI + essential expenses).</li>
+            <li>Baseline safe: 9–12 months.</li>
+            <li>Very safe: 12–18 months.</li>
           </ul>
         </div>
         <div class="card fade-in stagger-2">
-          <h3>Credit card drag</h3>
+          <h3>Keep it liquid</h3>
           <ul>
-            <li>24% APR ≈ 2% interest per month.</li>
-            <li>₹10,000 balance → ~₹200/month interest.</li>
+            <li>Hold buffer in savings/FDs.</li>
+            <li>Avoid locking it in long‑term instruments.</li>
           </ul>
         </div>
         <div class="card fade-in stagger-3">
-          <h3>Salary multiple</h3>
+          <h3>Update yearly</h3>
           <ul>
-            <li>If price > 3 months net pay, slow down.</li>
-            <li>Compare financing vs saving 3–6 months.</li>
+            <li>Recalculate when EMI or expenses change.</li>
+            <li>Increase buffer if job risk rises.</li>
           </ul>
         </div>
       </div>
@@ -403,30 +353,13 @@
     <section class="callout">
       <h3>One‑minute decision script</h3>
       <p>
-        1) Convert APR to monthly rate. 2) Estimate EMI with shortcuts. 3) Compare to take‑home pay.
-        4) Translate into “years of expenses saved.” 5) Decide if the tradeoff feels right.
+        1) Check EMI ≤ 35%. 2) Stress test +1–2% rate. 3) Compare EMI vs rent.
+        4) Ensure 9–12 months buffer. 5) Decide only if you’ll stay long‑term.
       </p>
     </section>
 
-    <section class="section">
-      <div class="section-title">
-        <h2>Deep dive</h2>
-        <span class="pill">guided decision</span>
-      </div>
-      <div class="grid">
-        <div class="card fade-in stagger-1">
-          <h3>Home‑loan decision page</h3>
-          <ul>
-            <li>India‑specific checklist for EMI, rent vs buy, and job‑loss safety.</li>
-            <li>Includes stress tests, corpus formula, and quick shortcuts.</li>
-            <li><a class="link" href="home-loan.html">Open the home‑loan guide →</a></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
     <div class="footer">
-      <span>Made for quick daily decisions. Adjust for your local rates.</span>
+      <span><a class="link" href="index.html">Back to mental‑math home</a></span>
       <span>Last updated: <span id="last-updated" data-fallback="—">—</span></span>
     </div>
   </div>
